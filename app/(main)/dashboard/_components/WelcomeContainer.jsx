@@ -12,7 +12,7 @@ function WelcomeContainer() {
             <h2 className='text-lg font-bold'>Welcome Back {user?.name}</h2>
             <h2 className='text-gray-500'>AI-Driven Interviews, Hassel Free Hiring</h2>
         </div>
-        {user&&<Image src={user?.picture} alt="user" width={40} height={40} className='rounded-full mt-5' />}
+        {user&&<Image src={user?.picture} alt="user" width={40} height={40} className='rounded-full mt-1' />}
     </div>
   )
 }
