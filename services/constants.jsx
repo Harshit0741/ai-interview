@@ -9,12 +9,12 @@ export const sideBarOptions = [
     {
         name: "Scheduling Interview",
         icon:Calendar,
-        path: "/schedule",
+        path: "/schedule-interview",
     },
     {
         name: "All Interview",
         icon:List,
-        path: "/interviews",
+        path: "/all-interview",
     },
     {
         name: "Billing",
@@ -82,6 +82,52 @@ format: interviewQuestions=[
 }]
 
 🎯 The goal is to create a structured, relevant, and time-optimized interview plan for a {{jobTitle}} role.`
+
+
+
+export const FEEDBACK_PROMPT = `{{conversation}}
+
+Depends on this Interview Conversation between assitant and user, 
+
+Give me feedback for user interview. Give me rating out of 10 for technical Skills, 
+
+Communication, Problem Solving, Experince. Also give me summery in 3 lines 
+
+about the interview and one line to let me know whether is recommanded 
+
+for hire or not with msg. Give me response in JSON format
+
+{
+
+    feedback:{
+
+        rating:{
+
+            techicalSkills:5,
+
+            communication:6,
+
+            problemSolving:4,
+
+            experince:7,
+
+            totalRating:6
+
+        },
+
+        summery:<in 3 Line>,
+
+        Recommendation:'',
+
+        RecommendationMsg:''
+
+
+
+    }
+
+}`
+
+
 
 
     

@@ -32,7 +32,7 @@ function Provider({children}) {
                 return;
             }
             setUser(Users[0]);
-            console.log(user);
+            console.log(Users);
         })
     }
 

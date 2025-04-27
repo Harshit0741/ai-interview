@@ -8,6 +8,9 @@ function Login() {
   const signInWithGoogle = async () => {
     const {error} = await supabase.auth.signInWithOAuth({
       provider: 'google',
+      options: {
+        redirectTo: `${process.env.NEXT_PUBLIC_BASIC_URL}dashboard` 
+      }
     })
     if(error){
       console.error('Error signing in with Google:', error.message)
