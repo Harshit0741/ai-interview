@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+build
+coverage
+*.log
+*.pem
+.DS_Store
+.yarn
+.pnp*
+next-env.d.ts
+*.tsbuildinfo
+.vercel
