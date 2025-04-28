@@ -1,4 +1,5 @@
 'use client'
+import { CreditsProvider } from '@/context/CreditsContext';
 import { UserDetailContext } from '@/context/UserDetailContext';
 import { supabase } from '@/services/supabaseClient'
 import { User } from 'lucide-react';
@@ -49,3 +50,4 @@ export const useUser = () => {
   const context = useContext(UserDetailContext);
   return context;
 }
+

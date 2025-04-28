@@ -24,7 +24,12 @@ export const sideBarOptions = [
     {
         name: "Settings",
         icon:Settings,
-        path: "/settings",
+        path: "",
+        dropdown: [
+            { name: 'Profile Settings', path: '/settings/profile' },
+            { name: 'Account Settings', path: '/settings/account' },
+            { name: 'Privacy Settings', path: '/settings/privacy' },
+        ],
     },
 ]
 

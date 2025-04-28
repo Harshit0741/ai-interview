@@ -1,64 +1,111 @@
-'use client';
+'use client'
 import React from 'react';
-import { Home, ArrowRight, CheckCircle, Rocket, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Home, ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const InterviewComplete = () => {
+    const router = useRouter();
   return (
-    <div className="bg-[#0B1120] text-white font-sans antialiased flex flex-col min-h-screen">
-      <main className="flex-grow flex flex-col items-center justify-center space-y-10 py-20 px-4">
-        
-        {/* Success Icon */}
-        <div className="bg-green-600 p-4 rounded-full shadow-lg">
-          <CheckCircle className="h-12 w-12 text-white" />
+    <div className="bg-white text-primary font-sans antialiased flex flex-col min-h-screen">
+      <div className="flex-grow flex flex-col items-center justify-center space-y-8 py-16">
+        <div className="rounded-full bg-green-500 p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-12 w-12 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+        <h1 className="text-4xl font-bold text-center">Interview Complete!</h1>
+        <p className="text-lg text-gray-600 text-center">
+          Thank you for participating in the AI-driven interview with AI-Interview
+        </p>
+        <div className="rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src={'/happyusers.svg'}
+            width={100}
+            height={100}
+            alt="Interview Illustration"
+            className="w-full h-auto object-cover max-w-4xl"
+            style={{
+              backgroundImage: 'url(https://i.imgur.com/g5B0C9N.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              width: '800px',
+              height: '400px',
+            }}
+          />
         </div>
 
-        {/* Heading */}
-        <h1 className="text-4xl font-bold text-center">Interview Complete!</h1>
-        <p className="text-lg text-gray-300 text-center max-w-xl">
-          Thank you for participating in the AI-driven interview with Alcruiter.
-        </p>
-
-        {/* Image */}
-        <img
-          src="https://i.imgur.com/g5B0C9N.png"
-          alt="Interview Illustration"
-          className="rounded-xl shadow-lg w-full max-w-3xl h-auto object-cover"
-        />
-
-        {/* Next Steps */}
-        <div className="bg-[#1E293B] rounded-xl p-8 shadow-md w-full max-w-xl space-y-6">
-          <div className="flex justify-center">
-            <div className="bg-[#334155] p-3 rounded-full">
-              <Rocket className="text-blue-400 h-6 w-6" />
-            </div>
+        <div className="bg-gray-100 rounded-xl p-8 shadow-md w-full max-w-xl space-y-4">
+          <div className="flex items-center justify-center rounded-full bg-gray-200 w-12 h-12 mx-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-blue-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+              />
+            </svg>
           </div>
+
           <h2 className="text-2xl font-semibold text-center">What's Next?</h2>
-          <p className="text-gray-300 text-center">
-            The recruiter will review your interview responses and contact you soon regarding the next steps.
+          <p className="text-gray-600 text-center">
+            The recruiter will review your interview responses and will contact you soon regarding the next steps.
           </p>
-          <p className="text-gray-400 text-sm text-center flex items-center justify-center gap-2">
-            <Clock className="h-4 w-4" />
+          <p className="text-gray-400 text-sm text-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 inline-block mr-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
             Response within 2-3 business days
           </p>
         </div>
 
-        {/* Buttons */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="bg-[#334155] text-gray-300 hover:text-white rounded-lg py-3 px-6 flex items-center gap-2 transition-all duration-300">
+        <div className="flex space-x-4">
+          <Button className="bg-gray-200 text-gray-600 cursor-pointer" variant={'outline'} onClick={()=>router.push('/dashboard')}>
             <Home className="h-5 w-5" />
-            Return to Homepage
-          </button>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-3 px-6 flex items-center gap-2 transition-all duration-300">
-            View Other Opportunities
-            <ArrowRight className="h-5 w-5" />
-          </button>
-        </div>
-      </main>
+            <span>Return to Homepage</span>
+          </Button>
 
-      {/* Footer */}
-      <footer className="bg-[#1E293B] text-gray-400 text-center py-4">
-        &copy; 2023 Alcruiter. All rights reserved.
+          <Button className="bg-blue-500 text-white cursor-pointer" onClick={()=>router.push('/dashboard')}>
+            <span>View Other Opportunities</span>
+            <ArrowRight className="h-5 w-5" />
+          </Button>
+        </div>
+
+      </div>
+
+      <footer className="bg-gray-100 text-gray-400 text-center py-4">
+        <p className='text-sm text-gray-500'>© 2025 Ai-Interview. All rights reserved.</p>
       </footer>
+
     </div>
   );
 };
