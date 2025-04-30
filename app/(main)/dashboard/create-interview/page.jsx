@@ -46,7 +46,7 @@ function CreateInterview() {
     }, [formData]);
 
   return (
-    <div className='px-10 md:px-24 lg:px-44 xl:px-56'>
+    <div className='-px-20 md:px-24 lg:px-44 xl:px-56'>
         <div className='flex items-center gap-5'>
             <ArrowLeft className='mt-1.5 cursor-pointer' onClick={()=>router.back()}/>
             <h2 className='font-bold text-2xl'>Create New Interview</h2>

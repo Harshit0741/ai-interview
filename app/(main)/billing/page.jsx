@@ -15,7 +15,7 @@ const BillingPage = () => {
     <div className="text-primary min-h-screen p-8">
       <h1 className="text-center text-4xl font-bold text-primary mb-8">Choose Your Plan</h1>
 
-      <div className="flex justify-center space-x-8">
+      <div className="flex flex-col gap-4 sm:flex-row justify-center space-x-8">
         {billingOptions.map((option) => (
           <div
             key={option.id}

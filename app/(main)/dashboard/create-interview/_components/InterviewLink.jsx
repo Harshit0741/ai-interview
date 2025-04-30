@@ -26,16 +26,16 @@ function InterviewLink({interview_id,formData}) {
         <h2 className='font-bold text-lg mt-4'>Your AI Interview Is Ready!</h2>
         <p className='mt-3'>Share this link with your candidates to start the interview process</p>
         <div className='w-full p-7 mt-6 rounded-lg bg-white shadow-md'>
-            <div className='flex justify-between items-center'>
+            <div className='flex flex-col sm:flex-row justify-between items-center'>
                 <h2 className='font-bold'>Interview Link</h2>
                 <h2 className='p-1 px-2 text-primary bg-blue-50 rounded-4xl'>Valid For 30 Days</h2>
             </div>
-            <div className='mt-3 flex gap-3 items-center'>
+            <div className='mt-3 flex gap-3 items-center flex-col sm:flex-row'>
                 <Input defaultValue={getInterviewUrl()} disabled={true} className='text-gray-500'/>
                 <Button className='cursor-pointer' onClick={()=>onCopyLink()}><Copy/> Copy Link</Button>
             </div>
             <hr className='my-7'/>
-            <div className='flex gap-5'>
+            <div className='flex flex-col sm:flex-row gap-5'>
                 <h2 className='text-sm text-gray-500 flex gap-2 items-center'><Clock/>{formData?.duration}</h2>
                 <h2 className='text-sm text-gray-500 flex gap-2 items-center'><List/>10 Questions</h2>
                 {/* <h2 className='text-sm text-gray-500 flex gap-2 items-center'><Calendar/>{formData?.duration}</h2> */}
@@ -43,13 +43,13 @@ function InterviewLink({interview_id,formData}) {
         </div>
         <div className='w-full p-5 mt-7 rounded-lg bg-white shadow-md'>
             <h2 className='font-bold'>Share Via</h2>
-            <div className='flex gap-7 mt-3'>
+            <div className='flex flex-col sm:flex-row gap-7 mt-3'>
                 <Button className='cursor-pointer' variant={'outline'}><Mail/> Email</Button>
                 <Button className='cursor-pointer' variant={'outline'}><Mail/> Slack</Button>
                 <Button className='cursor-pointer' variant={'outline'}><Mail/> WhatsApp</Button>
             </div>
         </div>
-        <div className='flex w-full gap-5 justify-between mt-6'>
+        <div className='flex flex-col sm:flex-row w-full gap-5 justify-between mt-6'>
             <Link href={"/dashboard"}>
                 <Button className='cursor-pointer' variant={'outline'}><ArrowLeft/> Back to Dashboard</Button>
             </Link>
