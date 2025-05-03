@@ -59,7 +59,7 @@ function QuestionList({formData,onCreateLink}) {
             })
             console.log("result:", result.data.content);
             const Content = result.data.content;
-            const FINAL_CONTENT = Content.replace('"```json"','').replace('```','').replace(/\\n/g,'\n')
+            const FINAL_CONTENT = Content.replace('```json','').replace('```','').replace(/\\n/g,'\n')
             setQuestionList(JSON.parse(FINAL_CONTENT)?.interviewQuestions);
             setLoading(false);
         }catch(err) {
