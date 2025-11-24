@@ -9,7 +9,7 @@ function Login() {
     const {error} = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `https://ai-interview-three-olive.vercel.app/dashboard` 
+        redirectTo: `http://localhost:3000/dashboard` 
       }
     })
     if(error){
