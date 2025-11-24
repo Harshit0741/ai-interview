@@ -6,10 +6,12 @@ import { Camera, Plus, Video } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import InterviewCard from './InterviewCard'
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 function LatestInterviewsList() {
     const [interviewList, setInterviewList] = useState([]);
     const {user} = useUser();
+    const router = useRouter();
 
     useEffect(()=>{
       user&&GetInterviewList();
@@ -36,7 +38,7 @@ function LatestInterviewsList() {
                 <div className='p-5 flex flex-col gap-3 items-center'>
                     <Video className='h-10 w-10 text-primary'/>
                     <h2>You don't have any interview created</h2>
-                    <Button className='cursor-pointer'><Plus/> Create New Interview</Button>
+                    <Button className='cursor-pointer' onClick={()=>router.push('/dashboard/create-interview')}><Plus/> Create New Interview</Button>
                 </div>
             }
             {interviewList&&
