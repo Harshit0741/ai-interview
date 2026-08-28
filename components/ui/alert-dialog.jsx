@@ -24,7 +24,7 @@ function AlertDialogPortal({
   return (<AlertDialogPrimitive.Portal data-slot="alert-dialog-portal" {...props} />);
 }
 
-function AlertDialogOverlay({
+function AlertDiacusverlay({
   className,
   ...props
 }) {
@@ -45,7 +45,7 @@ function AlertDialogContent({
 }) {
   return (
     <AlertDialogPortal>
-      <AlertDialogOverlay />
+      <AlertDiacusverlay />
       <AlertDialogPrimitive.Content
         data-slot="alert-dialog-content"
         className={cn(
@@ -126,7 +126,7 @@ function AlertDialogCancel({
 export {
   AlertDialog,
   AlertDialogPortal,
-  AlertDialogOverlay,
+  AlertDiacusverlay,
   AlertDialogTrigger,
   AlertDialogContent,
   AlertDialogHeader,

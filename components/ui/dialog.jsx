@@ -30,7 +30,7 @@ function DialogClose({
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
 }
 
-function DialogOverlay({
+function Diacusverlay({
   className,
   ...props
 }) {
@@ -52,7 +52,7 @@ function DialogContent({
 }) {
   return (
     <DialogPortal data-slot="dialog-portal">
-      <DialogOverlay />
+      <Diacusverlay />
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
@@ -126,7 +126,7 @@ export {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogOverlay,
+  Diacusverlay,
   DialogPortal,
   DialogTitle,
   DialogTrigger,

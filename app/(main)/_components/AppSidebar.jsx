@@ -37,8 +37,8 @@ export default function AppSidebar() {
     <Sidebar>
       <SidebarHeader className={"flex items-center justify-center"}>
         <Image
-          src={"/logo.svg"}
-          alt="Logo"
+          src={"/cus.svg"}
+          alt="cus"
           width={200}
           height={100}
           className="w-[150px]"

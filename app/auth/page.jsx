@@ -19,7 +19,7 @@ function Login() {
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
       <div className='flex flex-col items-center border rounded-2xl shadow-lg p-8 bg-white'>
-        <Image src={'/logo.svg'} alt="logo" width={400} height={100} className='w-[180px]'/>
+        <Image src={'/cus.svg'} alt="cus" width={400} height={100} className='w-[180px]'/>
         <div className='flex flex-col items-center'>
           <Image src={'/login.jpg'} alt="login" width={600} height={400} className='w-[400px] h-[350px] rounded-2xl'/>
           <h1 className='text-2xl font-bold text-center'>Welcome to ai-recuiter</h1>
