@@ -12,7 +12,7 @@ import { toast } from 'sonner'
 
 function Interview() {
     const {interview_id} = useParams();
-    console.log(interview_id);
+    // console.log(interview_id);
     const [interviewData,setInterviewData] = useState();
     const [userName,setUserName] = useState();
     const [userEmail,setUserEmail] = useState();
@@ -49,7 +49,7 @@ function Interview() {
         .from('Interviews')
         .select("*")
         .eq("interview_id",interview_id)
-        console.log(Interviews[0]);
+        // console.log(Interviews[0]);
         setInterviewInfo({
             userName:userName,
             userEmail:userEmail,

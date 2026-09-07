@@ -97,45 +97,38 @@ NO markdown, NO backticks, NO comments.
 
 export const FEEDBACK_PROMPT = `{{conversation}}
 
-Depends on this Interview Conversation between assitant and user, 
+You are evaluating the above Interview Conversation between an assistant (interviewer) and a user (candidate).
 
-Give me feedback for user interview. Give me rating out of 10 for technical Skills, 
+Before scoring, first check: does this conversation contain actual interview substance — i.e., did the assistant ask at least one real interview/technical/behavioral question AND did the user give a substantive answer (not just a greeting, small talk, or a single short message)?
 
-Communication, Problem Solving, Experince. Also give me summery in 3 lines 
-
-about the interview and one line to let me know whether is recommanded 
-
-for hire or not with msg. Give me response in JSON format
-
+- If NO (e.g. the conversation is just a greeting like "hi", is empty, or has no real Q&A exchange), do NOT invent a rating. Respond with this exact JSON shape instead:
 {
+  "feedback": {
+    "insufficientData": true,
+    "message": "<one line explaining there isn't enough interview content to generate feedback>"
+  }
+}
 
-    feedback:{
+- If YES, evaluate normally and respond in this JSON format:
+{
+  "feedback": {
+    "insufficientData": false,
+    "rating": {
+      "technicalSkills": <number 1-10>,
+      "communication": <number 1-10>,
+      "problemSolving": <number 1-10>,
+      "experience": <number 1-10>,
+      "totalRating": <number 1-10>
+    },
+    "summary": "<3 line summary of the interview>",
+    "recommendation": "<'Recommended' or 'Not Recommended'>",
+    "recommendationMsg": "<one line explaining the recommendation>"
+  }
+}
 
-        rating:{
+Base every rating strictly on evidence actually present in the conversation. Do not assume skills, experience, or competence that weren't demonstrated. If the conversation is too short to judge a specific category fairly, reflect that with a lower score and note it in the summary rather than defaulting to a high score.
 
-            techicalSkills:5,
-
-            communication:6,
-
-            problemSolving:4,
-
-            experince:7,
-
-            totalRating:6
-
-        },
-
-        summery:<in 3 Line>,
-
-        Recommendation:'',
-
-        RecommendationMsg:''
-
-
-
-    }
-
-}`
+Respond with valid JSON only — no extra text, no markdown code fences.`;
 
 
 

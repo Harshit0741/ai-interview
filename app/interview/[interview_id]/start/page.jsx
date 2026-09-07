@@ -15,13 +15,9 @@ import { useParams, useRouter } from "next/navigation";
 function StartInterview() {
   const { interviewInfo } = useContext(InterviewDataContext);
 
-  // Tri-state: "idle" | "connecting" | "active" | "ended"
+
   const [callStatus, setCallStatus] = useState("idle");
 
-  // Tri-state so nothing animates before the call is actually live:
-  // null = no one speaking yet / call not active
-  // true = user's turn (AI just stopped speaking)
-  // false = AI is speaking
   const [activeUser, setActiveUser] = useState(null);
 
   const [isMuted, setIsMuted] = useState(false);
@@ -89,7 +85,7 @@ function StartInterview() {
     if (!vapi) return;
 
     const handleMessage = (message) => {
-      console.log("Received Vapi message:", message);
+      // console.log("Received Vapi message:", message);
 
       if (message?.type === "conversation-update") {
         const messages = message?.messages;
@@ -101,7 +97,7 @@ function StartInterview() {
       }
 
       if (message?.type === "transcript") {
-        console.log(`${message?.role || "unknown"}:`, message?.transcript);
+        // console.log(`${message?.role || "unknown"}:`, message?.transcript);
       }
     };
 
@@ -216,7 +212,7 @@ function StartInterview() {
         .filter(Boolean)
         .join(", ") || "";
 
-    console.log("Interview questions:", questionList);
+    // console.log("Interview questions:", questionList);
 
     const assistantOptions = {
       name: "AI Recruiter",
@@ -246,7 +242,7 @@ function StartInterview() {
       },
     };
 
-    console.log("Starting call with options:", assistantOptions);
+    // console.log("Starting call with options:", assistantOptions);
 
     try {
       vapiRef.current.start(assistantOptions);
