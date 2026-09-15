@@ -7,7 +7,7 @@ import React from 'react'
 import { toast } from 'sonner'
 
 function InterviewLink({interview_id,formData}) {
-    const url = `hhttps://ai-interview-three-olive.vercel.app/interview/${interview_id}`
+    const url = `${process.env.NEXT_PUBLIC_HOST_URL}/interview/${interview_id}`
     console.log('interview_id:', interview_id);
 
     const getInterviewUrl = () => {
